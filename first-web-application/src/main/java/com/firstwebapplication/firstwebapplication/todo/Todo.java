@@ -1,12 +1,33 @@
 package com.firstwebapplication.firstwebapplication.todo;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.time.LocalDate;
 
+
+@Entity
 public class Todo {
+
+    @Id
+    @GeneratedValue
     private int id;
+
+    @Column
     private String user;
+
+    @Column
     private String desc;
+
+    @Column
     private boolean isDone;
+
+    @Column
     private LocalDate targetDate;
+
+
+    @Column
     private boolean done;
 
     public Todo(int id, String user, String desc, boolean isDone, LocalDate targetDate, boolean done) {

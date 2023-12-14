@@ -14,9 +14,10 @@ import java.util.List;
 public class TodoController {
 
     private TodoService todoService;
+    private  TodoRepository todoRepository;
 
-    public TodoController(TodoService todoService) {
-        this.todoService = todoService;
+    public TodoController(TodoService todoService ,TodoRepository todoRepository ) {
+        this.todoService = todoService; this.todoRepository = todoRepository;
     }
 
     @RequestMapping("/list-todos")
@@ -35,6 +36,14 @@ public class TodoController {
         todoService.addTodo("in28minutes",desc, LocalDate.now(),false);
         return "redirect:/list-todos";
     }
+
+
+    @RequestMapping(value = "/delete-todos" ,method = RequestMethod.POST)
+    public  String addTodo2(@RequestParam int id) {
+//        todoService.retrieveTodos(id);
+        return "redirect:/list-todos";
+    }
+
 
 
 }
