@@ -51,4 +51,7 @@ public class UserDaoService {
         users.removeIf(user -> id.equals(String.valueOf(user.getId())));
     }
 
+    public User findOne(int user_id) {
+        return users.stream().filter(user -> user.getId() == user_id).findFirst().get();
+    }
 }
